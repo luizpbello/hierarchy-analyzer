@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { HierarchyAnalyzer } from '../src/hierarchy/hierarchy';
+import { HierarchyAnalyzer } from '../src/hierarchy/hierarchy-analyzer';
 
 describe('HierarchyAnalyzer', () => {
   let analyzer: HierarchyAnalyzer;
