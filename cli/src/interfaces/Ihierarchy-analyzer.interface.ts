@@ -1,5 +1,3 @@
-import { Hierarchy } from './hierarchy.interface';
-
 export interface IHierarchyAnalyzer {
     /**
      * Analisa o texto fornecido e retorna um mapa de categorias e suas respectivas contagens.
