@@ -1,6 +1,7 @@
-export const add = (a: number, b: number) => {
-    if (typeof a !== "number" || typeof b !== "number") {
-        throw new Error("Both arguments must be numbers");
-    }
-    return a + b;
-}
+import { HierarchyAnalyzer } from './hierarchy/hierarchy';
+
+const instance = new HierarchyAnalyzer();
+
+const main = instance.analyzeText('Eu sou papagaios papagaios papagaios papagaios Gorilas', 1);
+
+console.log(main);
