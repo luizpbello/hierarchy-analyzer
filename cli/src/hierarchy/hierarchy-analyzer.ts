@@ -1,8 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { Hierarchy } from '../interfaces/hierarchy.interface';
+import { IHierarchyAnalyzer } from '../interfaces/Ihierarchy-analyzer.interface';
 
-export class HierarchyAnalyzer {
+export class HierarchyAnalyzer implements IHierarchyAnalyzer {
   private data: Hierarchy;
 
   constructor() {
@@ -10,9 +11,11 @@ export class HierarchyAnalyzer {
     this.data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   }
 
-  public analyzeText(text: string, depth: number) {
+  public analyzeText(text: string, depth: number): Map<string, number> {
     if (depth < 0 || !Number.isInteger(depth)) {
-      throw new Error('Profundidade inválida. Deve ser um número inteiro não negativo.');
+      throw new Error(
+        'Profundidade inválida. Deve ser um número inteiro não negativo.'
+      );
     }
 
     const hierarchyMap = this.buildHierarchyMap(this.data, depth);
@@ -51,14 +54,14 @@ export class HierarchyAnalyzer {
     return map;
   }
 
-  private sanitizeWord(word: string): string {
+  public sanitizeWord(word: string): string {
     return word
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase();
   }
 
-  private sanitizeWords(words: string[]): string[] {
+  public sanitizeWords(words: string[]): string[] {
     return words.map(this.sanitizeWord);
   }
 }
