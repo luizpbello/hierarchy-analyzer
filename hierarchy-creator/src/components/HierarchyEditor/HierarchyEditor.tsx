@@ -9,13 +9,9 @@ import HierarchyViewer from '../HierarchyViewer/HierarchyViewer';
 
 const HierarchyEditor: React.FC = () => {
   const { treeData, addNode } = useTreeData();
-  const {
-    modalVisible,
-    form,
-    openModal,
-    closeModal,
-    handleFormSubmit,
-  } = useFormModal(({ title, parent }) => addNode(title, parent));
+  const { modalVisible, form, openModal, closeModal, handleFormSubmit } =
+    useFormModal(({ title, parent }) => addNode(title, parent));
+  form.resetFields();
   const { getParentOptions, convertTreeDataToJson } = useTreeUtils();
 
   const handleSave = () => {
