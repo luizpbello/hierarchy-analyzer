@@ -36,13 +36,6 @@ Certifique-se de substituir "Insira a frase desejada" pela frase que você desej
 1. Navegue até o diretório do projeto CLI. Execute o comando `cd cli`.
 2. Execute o comando `npm test` para rodar os testes unitários.
 
-## Uso
-
-Para utilizar o projeto CLI, siga as instruções abaixo:
-
-1. Navegue até o diretório do projeto CLI.
-2. Execute o comando `node index.js` seguido dos argumentos necessários para realizar a tarefa desejada.
-
 
 # Projeto Hierarchy Creator(React)
 
