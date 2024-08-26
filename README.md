@@ -26,10 +26,10 @@ mamiferos = 2
 Você pode executar o seguinte comando:
 
 ```
-npm start -- analyze --depth=2 "Insira a frase desejada" --verbose
+npm start -- analyze --depth=1 "Eu amo papagaios leoes canários falcões e gorilas" --verbose
 ```
 
-Certifique-se de substituir "Insira a frase desejada" pela frase que você deseja analisar e ajustar o valor da profundidade conforme necessário.
+Certifique-se de substituir "frase" pelo texto que você deseja analisar e ajustar o valor da profundidade conforme necessário.
 
 ## Testes CLI
 
