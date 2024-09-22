@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Form, Modal, Input, Select } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-
 import { useTreeData } from '../../hooks/useTreeData';
 import { useFormModal } from '../../hooks/useFormModal';
 import { useTreeUtils } from '../../hooks/useTreeUtils';
@@ -9,22 +8,14 @@ import HierarchyViewer from '../HierarchyViewer/HierarchyViewer';
 
 const HierarchyEditor: React.FC = () => {
   const { treeData, addNode } = useTreeData();
-  const { modalVisible, form, openModal, closeModal, handleFormSubmit } =
-    useFormModal(({ title, parent }) => addNode(title, parent));
+  const { modalVisible, form, openModal, closeModal, handleFormSubmit } = useFormModal(({ title, parent }) => addNode(title, parent));
   form.resetFields();
-  const { getParentOptions, convertTreeDataToJson } = useTreeUtils();
+  const { getParentOptions, handleSave } = useTreeUtils();
 
-  const handleSave = () => {
-    const formattedData = convertTreeDataToJson(treeData);
-    const json = JSON.stringify(formattedData, null, 2);
-    const blob = new Blob([json], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'hierarchy.json';
-    a.click();
-    URL.revokeObjectURL(url);
+  const handleSaveClick = () => {
+    handleSave(treeData);
   };
+
 
   return (
     <div className="space-y-6">
@@ -70,7 +61,7 @@ const HierarchyEditor: React.FC = () => {
       </Modal>
       <Button
         type="default"
-        onClick={handleSave}
+        onClick={handleSaveClick}
         style={{ marginTop: '16px' }}
       >
         Salvar JSON

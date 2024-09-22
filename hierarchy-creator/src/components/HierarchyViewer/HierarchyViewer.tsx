@@ -8,12 +8,12 @@ interface HierarchyViewerProps {
 
 const HierarchyViewer: React.FC<HierarchyViewerProps> = ({ treeData }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md">
+    <div className="p-4 bg-white border border-gray-300 rounded-lg shadow-md">
       {treeData.length > 0 ? (
         <Tree
           treeData={treeData}
           titleRender={(nodeData: DataNode) => <span>{nodeData.title}</span>}
-          className="border border-gray-300 rounded"
+          className="rounded "
         />
       ) : (
         <p className="text-center text-gray-500">Nenhum nó para exibir.</p>
